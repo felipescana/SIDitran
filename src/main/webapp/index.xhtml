@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <h:outputScript library="js" name="/mascaraMonetaria/Parsers.js" />
+        <h:outputScript library="js" name="/mascaraMonetaria/JavaScriptUtil.js" />
+        <h:outputScript library="js" name="/mascaraMonetaria/InputMask.js" />   
+        <script language="JavaScript">
+            function mascaraMonetaria(arg) {
+                //Set up the NumberMasks
+                var separadorDecimal = ",";
+                var separadorMilhar = ".";
+
+                var formato = new NumberParser(2, separadorDecimal, separadorMilhar, true);
+                formato.currencySymbol = "R$";
+                formato.useCurrency = true;
+                formato.allowNegative = false;
+                formato.currencyInside = true;
+
+                if (arg.className.indexOf('mascaraMonetaria') == -1) {
+                    var mascaraMonetariaFinal = new NumberMask(formato, arg, 20);
+                    mascaraMonetariaFinal.leftToRight = true;
+                    arg.setAttribute('autocomplete', 'off');
+                    arg.className += ' mascaraMonetaria';
+                }
+            }
+        </script> 
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" resizable="true" closable="false" collapsible="false" size="50"  >
+                <center>
+                    <p:outputLabel value="System Service" style="font-size: 30px"/>
+                </center>
+                <!--                <div align="center">
+                                    <h:graphicImage value="/imagens/banner.jpg" width="600" /> 
+                                </div>-->
+            </p:layoutUnit>
+            <p:layoutUnit position="south" size="35" style="text-align: center">
+                <p:outputLabel value="Todos os direitos reservados 2017"/>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="180" resizable="false" closable="false" collapsible="true">
+                <h:form>
+                    <p:menu style="width: 160px">
+                        <p:submenu label="Cadastros" rendered="true" >                                                      
+                            <p:menuitem value="Estado" ajax="false" action="/estado/listaestado"/>
+                            <p:menuitem value="Cidade" ajax="false" action="/cidade/listacidade"/>
+                            <p:menuitem value="Pessoa" ajax="false" action="/pessoa/listapessoa"/>
+                            <p:menuitem value="Produto" ajax="false" action="/produto/listaproduto"/>
+                            <p:menuitem value="Serviço" ajax="false" action="/servico/listaservico"/>
+                        </p:submenu>
+                        <p:submenu label="Movimentos" rendered="true" >                                                      
+                            <p:menuitem value="Ordem de Serviço" ajax="false" action="/ordemservico/listaordemservico"/>                            
+                        </p:submenu>
+                        <p:submenu label="Relatorios" rendered="true" >                                                      
+                            <p:menuitem value="Estado" ajax="false" action="#"/>                            
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <ui:insert id="corpo" name="body">
+                    Seja bem vindo!
+                </ui:insert>
+            </p:layoutUnit>
+            
+        </p:layout>        
+    </h:body>
+</html>
+
