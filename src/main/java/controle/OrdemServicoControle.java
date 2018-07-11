@@ -31,7 +31,7 @@ import org.apache.deltaspike.core.api.scope.ViewAccessScoped;
 
 /**
  *
- * @author carol
+ * @author Felipe Canabrava
  */
 @Named
 @ViewAccessScoped

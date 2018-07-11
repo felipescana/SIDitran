@@ -7,7 +7,7 @@ package entidade;
 
 /**
  *
- * @author jaimedias
+ * @author Felipe Canabrava
  */
 public interface EntidadePai {
     

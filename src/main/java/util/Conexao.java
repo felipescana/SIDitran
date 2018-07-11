@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author jaime
+ * @author Felipe Canabrava
  */
 public class Conexao implements Serializable{
 

@@ -23,7 +23,7 @@ import util.Conexao;
 
 /**
  *
- * @author carol
+ * @author Felipe Canabrava
  */
 @Named
 @SessionScoped

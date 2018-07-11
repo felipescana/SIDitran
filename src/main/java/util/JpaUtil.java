@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author ricardo
+ * @author Felipe Canabrava
  */
 public class JpaUtil {
 
