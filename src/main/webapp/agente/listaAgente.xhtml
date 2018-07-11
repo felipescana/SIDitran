@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/main.xhtml">
+        <ui:define name="body">
+        <h3 align="center">Cadastro de Agente</h3>
+        <h:form>            
+            <p:dataTable value="#{agenteControle.listaTodos()}" var="agente"
+                         paginator="true" rows="5" emptyMessage="Nenhum agente cadastrado!">
+                <p:column headerText="Nome" filterBy="#{agente.nome}" filterMatchMode="contains">
+                    #{agente.nome}
+                </p:column>
+                <p:column headerText="Função" filterBy="#{agente.funcao}" filterMatchMode="contains">
+                    #{agente.funcao}
+                </p:column>
+                <p:column headerText="Operações">
+                    <p:commandButton icon="ui-icon-trash" actionListener="#{agenteControle.excluir(agente)}" ajax="false"/>
+                    <p:commandButton icon="ui-icon-pencil" actionListener="#{agenteControle.editar(agente)}" action="editaAgente" ajax="false"/>
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="Novo" actionListener="#{agenteControle.novo()}" action="editaAgente"/>
+            <p:commandButton value="Voltar" action="../index"/>
+        </h:form>    
+        </ui:define>
+    </ui:composition>
+</html>
+

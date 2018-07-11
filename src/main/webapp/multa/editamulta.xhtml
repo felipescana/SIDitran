@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/main.xhtml">
+        <ui:define name="body">
+            <h3 align="center">Cadastro de Multas</h3>
+            <h:form>
+                <p:growl autoUpdate="true"/>
+                <p:panelGrid columns="2">
+                    Numero:<p:inputText value="#{multaControle.multa.numero}" required="true" requiredMessage="O número é obrigatório!"/>
+                    Placa:<p:inputText value="#{multaControle.multa.placa}" required="true" requiredMessage="A placa é obrigatória!"/>
+                    Estado:<p:inputText value="#{multaControle.multa.uf}"/>
+                    Marca/Modelo:<p:inputText value="#{multaControle.multa.marcaModelo}" required="true" requiredMessage="O modelo do veículo é obrigatório!"/>
+                    <p:outputLabel for="notifica" value="Notificação:" />
+                    <p:selectOneMenu id="notifica" value="#{multaControle.multa.infracao}" effect="fold"  style="width:125px">
+                        <f:selectItem itemLabel="Escolha uma" itemValue="" />
+                        <f:selectItems value="#{multaControle.listaInfracoes}" />
+                    </p:selectOneMenu>
+                    Data:<p:calendar value="#{multaControle.multa.dataNotificacao}"/>
+                    Hora Chegada: <pe:timePicker value="#{multaControle.multa.horaChegada}" intervalMinutes="5" />
+                    Hora Notificação: <pe:timePicker value="#{multaControle.multa.horaNotificacao}" intervalMinutes="5" />
+                    Nome Agente: <p:inputText value="#{multaControle.multa.nomeAgente}" required="true" requiredMessage="O nome é obrigatório!"/>
+                    Observação: <p:inputText value="#{multaControle.multa.observacao}" />
+                    <p:commandButton value="Salvar" actionListener="#{multaControle.salvar()}" action="listamulta" ajax="false"/>
+                    <p:commandButton value="Cancelar" action="listamulta" immediate="true" ajax="false"/>
+                </p:panelGrid>            
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/main.xhtml">
+        <ui:define name="body">
+        <h3 align="center">Cadastro de Multas</h3>
+        <h:form>            
+            <p:dataTable value="#{multaControle.listaTodos()}" var="multa"
+                         paginator="true" rows="5" emptyMessage="Nenhuma multa cadastrada!">
+                <p:column headerText="Data" filterBy="#{multa.dataNotificacao}" filterMatchMode="contains">
+                    <h:outputText value="#{multa.dataNotificacao}">
+                        <f:convertDateTime pattern="dd-MM-yyyy" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Numero" filterBy="#{multa.numero}" filterMatchMode="contains">
+                    #{multa.numero}
+                </p:column>
+                <p:column headerText="Placa" filterBy="#{multa.placa}" filterMatchMode="contains">
+                    #{multa.placa}
+                </p:column>
+                <p:column headerText="UF" filterBy="#{multa.uf}" filterMatchMode="contains">
+                    #{multa.uf}
+                </p:column>
+                <p:column headerText="Fabricante" filterBy="#{multa.marcaModelo}" filterMatchMode="contains">
+                    #{multa.marcaModelo}
+                </p:column>
+                <p:column headerText="Operações">
+                    <p:commandButton icon="ui-icon-trash" actionListener="#{multaControle.excluir(multa)}" ajax="false"/>
+                    <p:commandButton icon="ui-icon-pencil" actionListener="#{multaControle.editar(multa)}" action="editamulta" ajax="false"/>
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="Novo" actionListener="#{multaControle.novo()}" action="editamulta"/>
+            <p:commandButton value="Voltar" action="../index"/>
+        </h:form>    
+        </ui:define>
+    </ui:composition>
+</html>
+

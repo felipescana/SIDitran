@@ -34,7 +34,7 @@
         <p:layout fullPage="true">
             <p:layoutUnit position="north" resizable="true" closable="false" collapsible="false" size="50"  >
                 <center>
-                    <p:outputLabel value="System Service" style="font-size: 30px"/>
+                    <p:outputLabel value="SiDitran" style="font-size: 30px"/>
                 </center>
                 <!--                <div align="center">
                                     <h:graphicImage value="/imagens/banner.jpg" width="600" /> 
@@ -46,18 +46,19 @@
             <p:layoutUnit position="west" size="180" resizable="false" closable="false" collapsible="true">
                 <h:form>
                     <p:menu style="width: 160px">
-                        <p:submenu label="Cadastros" rendered="true" >                                                      
-                            <p:menuitem value="Estado" ajax="false" action="/estado/listaestado"/>
-                            <p:menuitem value="Cidade" ajax="false" action="/cidade/listacidade"/>
+                        <p:submenu label="Cadastros" rendered="true" >          
+                            <p:menuitem value="Multa" ajax="false" action="/multa/listamulta"/>
+                            <p:menuitem value="Agente" ajax="false" action="/agente/listaAgente"/>
                             <p:menuitem value="Pessoa" ajax="false" action="/pessoa/listapessoa"/>
                             <p:menuitem value="Produto" ajax="false" action="/produto/listaproduto"/>
-                            <p:menuitem value="Serviço" ajax="false" action="/servico/listaservico"/>
+                             <p:menuitem value="Serviço" ajax="false" action="/servico/listaservico"/>
                         </p:submenu>
                         <p:submenu label="Movimentos" rendered="true" >                                                      
                             <p:menuitem value="Ordem de Serviço" ajax="false" action="/ordemservico/listaordemservico"/>                            
                         </p:submenu>
                         <p:submenu label="Relatorios" rendered="true" >                                                      
-                            <p:menuitem value="Estado" ajax="false" action="#"/>                            
+                            <p:menuitem value="Multas" ajax="false" action="#"/>    
+                            <p:menuitem value="Estoque" ajax="false" action="#"/>
                         </p:submenu>
                     </p:menu>
                 </h:form>
@@ -67,7 +68,7 @@
                     Seja bem vindo!
                 </ui:insert>
             </p:layoutUnit>
-            
+
         </p:layout>        
     </h:body>
 </html>

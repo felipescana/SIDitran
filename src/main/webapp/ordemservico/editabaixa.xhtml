@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+     <ui:composition template="/main.xhtml">
+        <ui:define name="body">
+            <h3 align="center">Movimento de baixa de multa</h3>
+            <h:form>
+                <p:growl autoUpdate="true" showDetail="true"/>
+                <p:panelGrid columns="2">
+                    Data da baixa:<p:calendar value="#{baixaControle.baixa.dataBaixa}"
+                                           pattern="dd/MM/yyyy"
+                                           locale="pt_BR"/>
+                    
+                    Total:<p:outputLabel value="#{baixaControle.baixa.valorTotal}" 
+                                         converter="#{baixaControle.moneyConverter}"
+                                         style="color: blue; font-size: medium"
+                                         id="campototal"/>
+                </p:panelGrid>  
+                <p:panel header="Multas" id="painelmulta">
+                    Placa<p:autoComplete value="#{baixaControle.itensMulta.multa}"
+                                          completeMethod="#{baixaControle.listaFiltrandoMulta}"
+                                            var="se"
+                                            converter="#{baixaControle.converterMulta}"
+                                            itemLabel="#{se.placa}"
+                                            itemValue="#{se}"
+                                            forceSelection="true"
+                                            >
+                        <p:ajax update="precoMulta" event="itemSelect" listener="#{baixaControle.setaValorMulta()}"/>
+                    </p:autoComplete>
+                    Preço:<p:inputText id="precoMulta" 
+                                       converter="#{baixaControle.moneyConverter}" 
+                                       value="#{baixaControle.itensMulta.valor}" 
+                                       onkeydown="mascaraMonetaria(this)"
+                                       size="10"/>
+                    Quantidade:<p:inputText size="10" value="#{baixaControle.itensMulta.quantidade}"/>
+                    <p:commandButton value="ADD" actionListener="#{baixaControle.addItemMulta()}" ajax="true" update="campototal painelmulta"/>
+                    <p:dataTable 
+                        value="#{baixaControle.baixa.itensMultas}"
+                        var="it"
+                        emptyMessage="Nenhuma multa adicionada!">
+
+                        <p:column headerText="Placa">
+                            #{it.multa.placa}
+                        </p:column>
+                        <p:column headerText="Valor">
+                            <p:outputLabel converter="#{baixaControle.moneyConverter}"
+                                           value="#{it.valor}"/>
+                        </p:column>
+                        <p:column headerText="Quantidade">
+                            #{it.quantidade}
+                        </p:column>
+                        <p:column headerText="Subtotal">
+                            <p:outputLabel converter="#{baixaControle.moneyConverter}"
+                                           value="#{it.subtotal}"/>                            
+                        </p:column>
+                        <p:column headerText="Operações">
+                            <p:commandButton icon="ui-icon-trash" ajax="false" actionListener="#{baixaControle.removerItemMulta(it)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+                                
+                <p:commandButton value="Salvar" actionListener="#{baixaControle.salvar()}" action="listamulta" ajax="false"/>
+                <p:commandButton value="Cancelar" action="listamulta" immediate="true" ajax="false"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
