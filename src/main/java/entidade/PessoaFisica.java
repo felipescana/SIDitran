@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author sistemas
  */
 @Entity
 public class PessoaFisica extends Pessoa implements Serializable {

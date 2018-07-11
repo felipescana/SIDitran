@@ -4,6 +4,7 @@
  */
 package converter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.regex.Pattern;
@@ -15,12 +16,12 @@ import javax.faces.convert.FacesConverter;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author fernando
 
  */
 @FacesConverter(value = "moneyConverter")
-public class MoneyConverter implements Converter {
-
+public class MoneyConverter implements Converter, Serializable {
+ private static final long serialVersionUID= 1L;
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String str) throws ConverterException {
         if (str == null || str.toString().trim().equals("")) {

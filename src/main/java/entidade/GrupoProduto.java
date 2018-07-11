@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author sistemas
  */
 @Entity
 public class GrupoProduto implements Serializable {

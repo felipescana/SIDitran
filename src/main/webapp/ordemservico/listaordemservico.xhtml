@@ -5,29 +5,26 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <ui:composition template="/index.xhtml">
+     <ui:composition template="/main.xhtml">
         <ui:define name="body">
-        <h3 align="center">Movimento de Ordem de Serviço</h3>
+        <h3 align="center">Movimento de Multa</h3>
         <h:form>            
-            <p:dataTable value="#{ordemServicoControle.listaTodos()}" var="e"
+            <p:dataTable value="#{baixaControle.listaTodos()}" var="e"
                          paginator="true" rows="5">
-                <p:column headerText="Data da OS" filterBy="#{e.dataServico}" filterMatchMode="contains">
-                    <p:outputLabel value="#{e.dataServico}">
+                <p:column headerText="Data da OS" filterBy="#{e.dataBaixa}" filterMatchMode="contains">
+                    <p:outputLabel value="#{e.dataBaixa}">
                         <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"/>
                     </p:outputLabel>
-                </p:column>
-                <p:column headerText="Cliente" filterBy="#{e.pessoa.nome}" filterMatchMode="contains">
-                    #{e.pessoa.nome}
                 </p:column>
                 <p:column headerText="Valor Total" filterBy="#{e.valorTotal}" filterMatchMode="contains">
                     #{e.valorTotal}
                 </p:column>
                 <p:column headerText="Operações">
-                    <p:commandButton icon="ui-icon-trash" actionListener="#{ordemServicoControle.excluir(e)}" ajax="false"/>
-                    <p:commandButton icon="ui-icon-pencil" actionListener="#{ordemServicoControle.editar(e)}" action="editaordemservico" ajax="false"/>
+                    <p:commandButton icon="ui-icon-trash" actionListener="#{baixaControle.excluir(e)}" ajax="false"/>
+                    <p:commandButton icon="ui-icon-pencil" actionListener="#{baixaControle.editar(e)}" action="editabaixa" ajax="false"/>
                 </p:column>
             </p:dataTable>
-            <p:commandButton value="Novo" actionListener="#{ordemServicoControle.novo()}" action="editaordemservico" ajax="false"/>
+            <p:commandButton value="Novo" actionListener="#{baixaControle.novo()}" action="editabaixa" ajax="false"/>
             <p:commandButton value="Voltar" action="../index"/>
         </h:form>    
         </ui:define>

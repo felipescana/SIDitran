@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author jaimedias
  */
 @Entity
 public class ContasReceber implements Serializable {
@@ -33,7 +33,7 @@ public class ContasReceber implements Serializable {
     private Integer numeroParcela;
     private Double valor;
     @ManyToOne
-    private OrdemServico ordemServico;
+    private Baixa ordemServico;
     @ManyToOne
     private Pessoa pessoa;
 
@@ -69,11 +69,11 @@ public class ContasReceber implements Serializable {
         this.valor = valor;
     }
 
-    public OrdemServico getOrdemServico() {
+    public Baixa getOrdemServico() {
         return ordemServico;
     }
 
-    public void setOrdemServico(OrdemServico ordemServico) {
+    public void setOrdemServico(Baixa ordemServico) {
         this.ordemServico = ordemServico;
     }
 

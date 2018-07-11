@@ -7,7 +7,6 @@ package entidade;
 
 /**
  *
- * @author Felipe Canabrava
  */
 public interface EntidadePai {
     

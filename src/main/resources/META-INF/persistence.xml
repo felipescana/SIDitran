@@ -6,15 +6,17 @@
     <class>entidade.Cidade</class>
     <class>entidade.GrupoProduto</class>
     <class>entidade.GrupoServico</class>
-    <class>entidade.ItensProduto</class>
-    <class>entidade.ItensServico</class>
-    <class>entidade.OrdemServico</class>
     <class>entidade.Pessoa</class>
     <class>entidade.PessoaFisica</class>
     <class>entidade.PessoaJuridica</class>
     <class>entidade.Produto</class>
     <class>entidade.Servico</class>
     <class>entidade.ContasReceber</class>
+    <class>entidade.Usuario</class>
+    <class>entidade.Agente</class>
+    <class>entidade.ItensMulta</class>
+    <class>entidade.Baixa</class>
+    <class>entidade.Multa</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/systemservice"/>
@@ -23,7 +25,7 @@
       <property name="javax.persistence.jdbc.password" value="egdmf,n10"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.hbm2ddl.auto" value="uptade"/>
     </properties>
   </persistence-unit>
 </persistence>

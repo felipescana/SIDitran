@@ -13,7 +13,7 @@ import javax.interceptor.InterceptorBinding;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author jaimedias
  */
 @InterceptorBinding
 @Target({ElementType.TYPE, ElementType.METHOD})

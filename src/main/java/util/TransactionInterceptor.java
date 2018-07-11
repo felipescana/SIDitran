@@ -14,7 +14,7 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author ricardo
  */
 @Transacional
 @Interceptor

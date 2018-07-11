@@ -14,7 +14,7 @@ import javax.faces.convert.Converter;
 
 /**
  *
- * @author Felipe Canabrava
+ * @author jaimedias
  */
 public class ConverterGenerico implements Converter{
     
