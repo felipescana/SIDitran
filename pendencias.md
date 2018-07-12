@@ -1,7 +1,7 @@
 # Lista de tarefas
 
 - [ ] cadastro de multa criar status ''~pago''
-- [ ] trocar nome de ordem de servico para ''baixa de multa''
+- [X] trocar nome de ordem de servico para ''baixa de multa''
 - [ ] arrumar botao de salvar no ordem de servico, ela nao volta.
 - [ ] listar multas em aberto na pesquisa ordem de servico na placa 
 

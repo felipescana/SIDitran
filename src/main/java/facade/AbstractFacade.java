@@ -28,7 +28,8 @@ public abstract class AbstractFacade<T>  implements Serializable{
     }
     
     public List<T> listaTodos(){
-        Query q = getEntityManager().createQuery("from "+entityClass.getSimpleName());
+        String hql = "from " + entityClass.getSimpleName();
+        Query q = getEntityManager().createQuery(hql);
         return q.getResultList();
     }
     

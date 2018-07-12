@@ -25,25 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "multa")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Multa_1.findAll", query = "SELECT m FROM Multa_1 m")
-    , @NamedQuery(name = "Multa_1.findById", query = "SELECT m FROM Multa_1 m WHERE m.id = :id")
-    , @NamedQuery(name = "Multa_1.findByDatahora", query = "SELECT m FROM Multa_1 m WHERE m.datahora = :datahora")
-    , @NamedQuery(name = "Multa_1.findByDatanotificacao", query = "SELECT m FROM Multa_1 m WHERE m.datanotificacao = :datanotificacao")
-    , @NamedQuery(name = "Multa_1.findByHorachegada", query = "SELECT m FROM Multa_1 m WHERE m.horachegada = :horachegada")
-    , @NamedQuery(name = "Multa_1.findByHoranotificacao", query = "SELECT m FROM Multa_1 m WHERE m.horanotificacao = :horanotificacao")
-    , @NamedQuery(name = "Multa_1.findByInfracao", query = "SELECT m FROM Multa_1 m WHERE m.infracao = :infracao")
-    , @NamedQuery(name = "Multa_1.findByLocalnotificacao", query = "SELECT m FROM Multa_1 m WHERE m.localnotificacao = :localnotificacao")
-    , @NamedQuery(name = "Multa_1.findByMarcamodelo", query = "SELECT m FROM Multa_1 m WHERE m.marcamodelo = :marcamodelo")
-    , @NamedQuery(name = "Multa_1.findByModeloveiculo", query = "SELECT m FROM Multa_1 m WHERE m.modeloveiculo = :modeloveiculo")
-    , @NamedQuery(name = "Multa_1.findByNomeagente", query = "SELECT m FROM Multa_1 m WHERE m.nomeagente = :nomeagente")
-    , @NamedQuery(name = "Multa_1.findByNumero", query = "SELECT m FROM Multa_1 m WHERE m.numero = :numero")
-    , @NamedQuery(name = "Multa_1.findByObservacao", query = "SELECT m FROM Multa_1 m WHERE m.observacao = :observacao")
-    , @NamedQuery(name = "Multa_1.findByPlaca", query = "SELECT m FROM Multa_1 m WHERE m.placa = :placa")
-    , @NamedQuery(name = "Multa_1.findByRegularizacao", query = "SELECT m FROM Multa_1 m WHERE m.regularizacao = :regularizacao")
-    , @NamedQuery(name = "Multa_1.findByUf", query = "SELECT m FROM Multa_1 m WHERE m.uf = :uf")
-    , @NamedQuery(name = "Multa_1.findByPago", query = "SELECT m FROM Multa_1 m WHERE m.pago = :pago")})
 public class Multa implements Serializable {
 
     private static final long serialVersionUID = 1L;

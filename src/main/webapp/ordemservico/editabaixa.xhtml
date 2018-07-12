@@ -21,12 +21,11 @@
                                          id="campototal"/>
                 </p:panelGrid>  
                 <p:panel header="Multas" id="painelmulta">
-                    Placa<p:autoComplete value="#{baixaControle.itensMulta.multa}"
+                    Placa<p:autoComplete value="#{baixaControle.itensMulta}"
                                           completeMethod="#{baixaControle.listaFiltrandoMulta}"
-                                            var="se"
-                                            converter="#{baixaControle.converterMulta}"
-                                            itemLabel="#{se.placa}"
-                                            itemValue="#{se}"
+                                            var="it"
+                                            itemLabel="#{it.multa.placa}"
+                                            itemValue="#{it.multa}"
                                             forceSelection="true"
                                             >
                         <p:ajax update="precoMulta" event="itemSelect" listener="#{baixaControle.setaValorMulta()}"/>

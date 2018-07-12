@@ -12,7 +12,7 @@
             <p:dataTable value="#{multaControle.listaTodos()}" var="multa"
                          paginator="true" rows="5" emptyMessage="Nenhuma multa cadastrada!">
                 <p:column headerText="Data" filterBy="#{multa.dataNotificacao}" filterMatchMode="contains">
-                    <h:outputText value="#{multa.dataNotificacao}">
+                    <h:outputText value="#{multa.datanotificacao}">
                         <f:convertDateTime pattern="dd-MM-yyyy" />
                     </h:outputText>
                 </p:column>
@@ -25,8 +25,8 @@
                 <p:column headerText="UF" filterBy="#{multa.uf}" filterMatchMode="contains">
                     #{multa.uf}
                 </p:column>
-                <p:column headerText="Fabricante" filterBy="#{multa.marcaModelo}" filterMatchMode="contains">
-                    #{multa.marcaModelo}
+                <p:column headerText="Fabricante" filterBy="#{multa.marcamodelo}" filterMatchMode="contains">
+                    #{multa.marcamodelo}
                 </p:column>
                 <p:column headerText="Operações">
                     <p:commandButton icon="ui-icon-trash" actionListener="#{multaControle.excluir(multa)}" ajax="false"/>
