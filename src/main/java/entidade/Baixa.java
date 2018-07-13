@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author sistemas
+ * @author Felipe Canabrava
  */
 @Entity
 public class Baixa implements Serializable {

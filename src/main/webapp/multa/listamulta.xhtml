@@ -28,6 +28,9 @@
                 <p:column headerText="Fabricante" filterBy="#{multa.marcamodelo}" filterMatchMode="contains">
                     #{multa.marcamodelo}
                 </p:column>
+                <p:column headerText="Pago">
+                    #{multa.pago}
+                </p:column>
                 <p:column headerText="Operações">
                     <p:commandButton icon="ui-icon-trash" actionListener="#{multaControle.excluir(multa)}" ajax="false"/>
                     <p:commandButton icon="ui-icon-pencil" actionListener="#{multaControle.editar(multa)}" action="editamulta" ajax="false"/>

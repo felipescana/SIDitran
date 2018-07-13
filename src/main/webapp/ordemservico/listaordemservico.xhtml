@@ -9,24 +9,31 @@
         <ui:define name="body">
         <h3 align="center">Movimento de Multa</h3>
         <h:form>            
-            <p:dataTable value="#{baixaControle.listaTodos()}" var="e"
-                         paginator="true" rows="5">
-                <p:column headerText="Data da OS" filterBy="#{e.dataBaixa}" filterMatchMode="contains">
-                    <p:outputLabel value="#{e.dataBaixa}">
-                        <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"/>
-                    </p:outputLabel>
+            <p:dataTable value="#{multaControle.listaNaoPago()}" var="multa"
+                         paginator="true" rows="5" emptyMessage="Nenhuma multa cadastrada!">
+                <p:column headerText="Data" filterBy="#{multa.dataNotificacao}" filterMatchMode="contains">
+                    <h:outputText value="#{multa.datanotificacao}">
+                        <f:convertDateTime pattern="dd-MM-yyyy" />
+                    </h:outputText>
                 </p:column>
-                <p:column headerText="Valor Total" filterBy="#{e.valorTotal}" filterMatchMode="contains">
-                    #{e.valorTotal}
+                <p:column headerText="Numero" filterBy="#{multa.numero}" filterMatchMode="contains">
+                    #{multa.numero}
+                </p:column>
+                <p:column headerText="Placa" filterBy="#{multa.placa}" filterMatchMode="contains">
+                    #{multa.placa}
+                </p:column>
+                <p:column headerText="UF" filterBy="#{multa.uf}" filterMatchMode="contains">
+                    #{multa.uf}
+                </p:column>
+                <p:column headerText="Fabricante" filterBy="#{multa.marcamodelo}" filterMatchMode="contains">
+                    #{multa.marcamodelo}
                 </p:column>
                 <p:column headerText="Operações">
-                    <p:commandButton icon="ui-icon-trash" actionListener="#{baixaControle.excluir(e)}" ajax="false"/>
-                    <p:commandButton icon="ui-icon-pencil" actionListener="#{baixaControle.editar(e)}" action="editabaixa" ajax="false"/>
+                    <p:commandButton icon="ui-icon-arrow-1-s" actionListener="#{multaControle.editar(multa)}" action="editbaixa" ajax="false"/>
                 </p:column>
             </p:dataTable>
-            <p:commandButton value="Novo" actionListener="#{baixaControle.novo()}" action="editabaixa" ajax="false"/>
             <p:commandButton value="Voltar" action="../index"/>
-        </h:form>    
+         </h:form>    
         </ui:define>
     </ui:composition>
 </html>

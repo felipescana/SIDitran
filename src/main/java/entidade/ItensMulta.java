@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author sistemas
+ * @author Felipe Canabrava
  */
 @Entity
 public class ItensMulta implements Serializable {

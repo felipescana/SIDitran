@@ -16,7 +16,7 @@ import javax.faces.convert.FacesConverter;
 
 /**
  *
- * @author fernando
+ * @author Felipe Canabrava
 
  */
 @FacesConverter(value = "moneyConverter")

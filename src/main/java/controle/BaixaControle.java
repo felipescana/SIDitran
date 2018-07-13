@@ -20,7 +20,7 @@ import org.apache.deltaspike.core.api.scope.ViewAccessScoped;
 
 /**
  *
- * @author carol
+ * @author Felipe 
  */
 @Named
 @ViewAccessScoped

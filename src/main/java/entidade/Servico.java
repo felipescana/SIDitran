@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author sistemas
+ * @author Felipe Canabrava
  */
 @Entity
 public class Servico implements Serializable, EntidadePai {

@@ -81,6 +81,14 @@ public class MultaControle implements Serializable {
     public List<Multa> listaTodos() {
         return multaFacade.listaTodos();
     }
+    
+    public List<Multa> listaFiltrando(String filtro, String... atributos) {
+        return multaFacade.listaFiltrando(filtro, atributos);
+    }
+    
+    public List<Multa> listaNaoPago() {
+        return multaFacade.listaNaoPago();
+    }
 
     public Multa getMulta() {
         return multa;

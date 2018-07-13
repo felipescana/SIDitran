@@ -1,5 +1,6 @@
 package facade;
 
+import entidade.Multa;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -33,13 +34,20 @@ public abstract class AbstractFacade<T>  implements Serializable{
         return q.getResultList();
     }
     
+    public List<T> listaNaoPago(){
+        String hql = "from " + entityClass.getSimpleName() + " obj where NOT obj.pago";
+        Query q = getEntityManager().createQuery(hql);
+        q.setParameter("filtro", "false");
+        return q.getResultList();
+    }
+    
     public List<T> listaFiltrando(String filtro, String... atributos) {
         String hql = "from " + entityClass.getSimpleName() + " obj where ";
         for (String atributo : atributos) {
             hql += "lower(obj." + atributo + ") like :filtro OR ";
         }
         hql = hql.substring(0, hql.length() - 3);
-        Query q = getEntityManager().createQuery(hql);
+            Query q = getEntityManager().createQuery(hql);
         q.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
         return q.getResultList();
     }

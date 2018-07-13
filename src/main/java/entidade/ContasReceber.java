@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author jaimedias
+ * @author Felipe Canabrava
  */
 @Entity
 public class ContasReceber implements Serializable {

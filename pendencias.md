@@ -9,6 +9,6 @@
 - [ ] relatorio de baixa por periodo totalizando os valores 
 - [ ] relatarios cadastrais 
 
-- [ ] remover cadastro de servico 
+- [X] remover cadastro de servico 
 
 - [ ] aplicar entrada e saida dos produtos  ''almoxarifado''

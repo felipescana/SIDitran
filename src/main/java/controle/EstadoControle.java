@@ -15,7 +15,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author carol
+ * @author Felipe Canabrava
  */
 @Named
 @SessionScoped
